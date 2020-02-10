@@ -106,7 +106,7 @@ gridcol = rand_color(nn+2) #given random colors
         
         #make text label vertical when space is too small; cex to adjust font size
         
-        if(abs(xplot[2] - xplot[1]) < 20) {
+        if(abs(xplot[2] - xplot[1]) < 20 | abs(xplot[2] - xplot[1]) > 340) {
           circos.text(mean(xlim), ylim[1], sector.name, facing = "clockwise",
                       niceFacing = TRUE, adj = c(0, 0.5), col = "black", 
                       cex = 1)
