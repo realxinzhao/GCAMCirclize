@@ -4,6 +4,7 @@ library(dplyr)
 library(stringr)
 library(circlize)
 library(RColorBrewer)
+`%notin%` = Negate(`%in%`) #create not in
 
 #Read and process queried data
 #region mapping
