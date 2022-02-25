@@ -11,11 +11,13 @@ Wheat_TM_2020 %>%
   mutate(value = value / 1000000) %>%  #Mt
   filter(value >= 0.5) %>% 
   mutate(area = replace(area, area == "United States of America", "USA")) %>% 
+  mutate(area = replace(area, area == "United Arab Emirates", "UAE")) %>% 
   mutate(area = replace(area, area == "Democratic Republic of the Congo", "DR Congo")) %>% 
-  mutate(area = gsub("Federation| of Great Britain and Northern Ireland| Province of| (Bolivarian Republic of)| (Islamic Republic of)", "", area)) %>% 
+  mutate(area = gsub("Federation| of Great Britain and Northern Ireland| Province of| \\(Bolivarian Republic of\\)|United Republic of | \\(Islamic Republic of\\)", "", area)) %>% 
   mutate(source = replace(source, source == "United States of America", "USA")) %>% 
+  mutate(source = replace(source, source == "United Arab Emirates", "UAE")) %>% 
   mutate(source = replace(source, source == "Democratic Republic of the Congo", "DR Congo")) %>% 
-  mutate(source = gsub("Federation| of Great Britain and Northern Ireland| Province of| (Bolivarian Republic of)| (Islamic Republic of)", "", source)) %>% 
+  mutate(source = gsub("Federation| of Great Britain and Northern Ireland| Province of| \\(Bolivarian Republic of\\)|United Republic of | \\(Islamic Republic of\\)", "", source)) %>% 
   select(REG_ex = source, REG_im = area, flow = value) ->
 dat_circular
   
